@@ -32,6 +32,15 @@ An **AI-powered hotel recommendation system** that takes user input — location
   
 ---
 
+## Output
+
+![{7C7A9A3B-B6F6-43CC-984D-72F46CDE9D00}](https://github.com/user-attachments/assets/6d9f43ec-567b-467b-825a-9559593ab671)
+
+![image](https://github.com/user-attachments/assets/c7864295-0171-4980-bdc0-e6acb2a7b34b)
+
+  
+---
+
 
 
 
