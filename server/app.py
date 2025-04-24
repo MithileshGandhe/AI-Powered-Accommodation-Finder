@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 socketio = SocketIO(app, cors_allowed_origins="*") 
 
-api_key = "AIzaSyAakdWOFovXbKggI932puj2O1AYlMlqsdk"  
+api_key = "GOOGLE_API_KEY"  
 genai.configure(api_key=api_key)
 
 def clean_and_extract_json(raw_content, max_elements=3):
@@ -94,7 +94,7 @@ def handle_fetch_hotels(data):
             "currency": "INR",
             "gl": "in",
             "hl": "en",
-            "api_key": "3fa6bf6a0ecc29f37d2c142a751f43ab3df745853a7b2f219d221bc1e156f2be"
+            "api_key": "SerpApi_API_KEY"
         }
 
         print(f"SerpAPI params: {params}")
@@ -112,7 +112,7 @@ def handle_fetch_hotels(data):
                 "location": "India",
                 "gl": "in",
                 "hl": "en",
-                "api_key": "3fa6bf6a0ecc29f37d2c142a751f43ab3df745853a7b2f219d221bc1e156f2be"
+                "api_key": "SerpApi_API_KEY"
             }
             
             print("Trying fallback API call with regular Google Search")
