@@ -1,3 +1,7 @@
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -7,12 +11,15 @@ from datetime import datetime, timedelta
 import google.generativeai as genai
 import re
 
+# Load environment variables from the root .env file
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
-socketio = SocketIO(app, cors_allowed_origins="*") 
+socketio = SocketIO(app, cors_allowed_origins="*")
 
-api_key = "GOOGLE_API_KEY"  
-genai.configure(api_key=api_key)
+genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 
 def clean_and_extract_json(raw_content, max_elements=3):
     try:
@@ -94,7 +101,7 @@ def handle_fetch_hotels(data):
             "currency": "INR",
             "gl": "in",
             "hl": "en",
-            "api_key": "SerpApi_API_KEY"
+            "api_key": os.environ.get("SERPAPI_API_KEY")
         }
 
         print(f"SerpAPI params: {params}")
@@ -112,7 +119,7 @@ def handle_fetch_hotels(data):
                 "location": "India",
                 "gl": "in",
                 "hl": "en",
-                "api_key": "SerpApi_API_KEY"
+                "api_key": os.environ.get("SERPAPI_API_KEY")
             }
             
             print("Trying fallback API call with regular Google Search")

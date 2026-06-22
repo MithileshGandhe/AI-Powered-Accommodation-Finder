@@ -1,0 +1,6 @@
+flask
+flask-cors
+flask-socketio
+google-search-results
+google-generativeai
+python-dotenv
